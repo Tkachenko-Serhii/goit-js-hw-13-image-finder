@@ -9,4 +9,8 @@ refs.loadMoreBtn.addEventListener('click', onLoadMore);
 
 export default function onLoadMore() {
   imageApiService.fetchImages().then(appendImagesMarkup);
+  refs.loadMoreBtn.scrollIntoView({
+    behavior: 'smooth',
+    block: 'end',
+  });
 }

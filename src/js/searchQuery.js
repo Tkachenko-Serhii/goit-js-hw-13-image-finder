@@ -1,6 +1,7 @@
 import getRefs from './get-refs';
 import ImageApiService from './apiService';
 import { appendImagesMarkup, clearImagesContainer } from './addMarkup';
+import { alert } from '@pnotify/core';
 
 const refs = getRefs();
 
@@ -10,10 +11,20 @@ refs.searchForm.addEventListener('submit', onFormSubmit);
 function onFormSubmit(e) {
   e.preventDefault();
 
-  clearImagesContainer();
   imageApiService.query = e.currentTarget.elements.query.value;
+
+  if (imageApiService.query === '') {
+    return alert({
+      type: 'error',
+      text: 'Please enter a query!',
+    });
+  }
+
   imageApiService.resetPage();
-  imageApiService.fetchImages().then(appendImagesMarkup);
+  imageApiService.fetchImages().then(hits => {
+    clearImagesContainer();
+    appendImagesMarkup(hits);
+  });
 }
 
 export default { onFormSubmit };
