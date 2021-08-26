@@ -1,5 +1,4 @@
 import onFormSubmit from './js/searchQuery';
-import './js/load-more';
 import { appendFormMarkup } from './js/addMarkup';
 import { defaultModules } from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';

@@ -27,4 +27,23 @@ function onFormSubmit(e) {
   });
 }
 
+const options = {
+  rootMargin: '100px',
+};
+
+const onEntry = entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && imageApiService.query !== '') {
+      onLoadMore();
+    }
+  });
+};
+
+function onLoadMore() {
+  imageApiService.fetchImages().then(appendImagesMarkup);
+}
+
+export const observer = new IntersectionObserver(onEntry, options);
+observer.observe(refs.loadMore);
+
 export default { onFormSubmit };
