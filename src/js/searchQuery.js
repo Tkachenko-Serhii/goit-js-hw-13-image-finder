@@ -11,7 +11,7 @@ refs.searchForm.addEventListener('submit', onFormSubmit);
 function onFormSubmit(e) {
   e.preventDefault();
 
-  imageApiService.query = e.currentTarget.elements.query.value;
+  imageApiService.query = e.currentTarget.elements.query.value.trim();
 
   if (imageApiService.query === '') {
     return alert({
