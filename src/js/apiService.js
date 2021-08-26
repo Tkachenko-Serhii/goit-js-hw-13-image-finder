@@ -8,7 +8,14 @@ export default class ImageApiService {
   }
 
   fetchImages() {
-    const url = `${BASE_URL}/?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${API_KEY}`;
+    const searchParams = new URLSearchParams({
+      image_type: 'photo',
+      orientation: 'horizontal',
+      q: this.searchQuery,
+      page: this.page,
+      per_page: 12,
+    });
+    const url = `${BASE_URL}/?${searchParams}&key=${API_KEY}`;
 
     return fetch(url)
       .then(response => response.json())
