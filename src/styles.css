@@ -1,0 +1,42 @@
+body {
+  padding: 20px;
+  background-image: url('./images/search.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+img {
+  display: block;
+  width: 350px;
+  height: 250px;
+}
+
+input {
+  padding: 5px;
+  border-radius: 10px;
+  border: solid rgb(87, 3, 3) 2px;
+}
+
+.search-form {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.photo-card {
+  margin-right: 15px;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%),
+    0px 2px 1px rgb(0 0 0 / 20%);
+}
+
+.stats-item {
+  text-align: center;
+}
